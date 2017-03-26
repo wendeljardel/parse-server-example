@@ -16,14 +16,14 @@ var api = new ParseServer({
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: 'pyggly-parse-dev',
   masterKey: 'pyggly-parse-dev_4LN8YI08JI', //Add your master key here. Keep it secret!
-  serverURL: 'https://pyggly-parse-dev.herokuapp.com/parse',  // Don't forget to change to https if needed
+  serverURL: 'https://pyggly-parse-dev.herokuapp.com/parse/',  // Don't forget to change to https if needed
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   },
   // The public URL of your app.
   // This will appear in the link that is used to verify email addresses and reset passwords.
   // Set the mount path as it is in serverURL
-  publicServerURL: 'https://pyggly-parse-dev.herokuapp.com/parse',
+  publicServerURL: 'https://pyggly-parse-dev.herokuapp.com/parse/',
   // Your apps name. This will appear in the subject and body of the emails that are sent.
   appName: 'pyggly-parse-dev',
   // The email adapter
