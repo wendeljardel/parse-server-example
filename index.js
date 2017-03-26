@@ -31,7 +31,7 @@ var api = new ParseServer({
      module: 'parse-server-simple-mailgun-adapter',
      options: {
        // The address that your emails come from
-       fromAddress: 'mailgun@pyggly.com,
+       fromAddress: 'mailgun@pyggly.com',
        // Your domain from mailgun.com
        domain: 'pyggly.com',
        // Your API key from mailgun.com
