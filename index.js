@@ -33,7 +33,7 @@ var api = new ParseServer({
        // The address that your emails come from
        fromAddress: 'mailgun@pyggly.com',
        // Your domain from mailgun.com
-       domain: 'pyggly.com',
+       domain: 'app4398522cd0e04ed182dd7a23c02ac37e.mailgun.org',
        // Your API key from mailgun.com
        apiKey: 'key-7ae34f114a087362b42138490a1a9a2e',
      }
