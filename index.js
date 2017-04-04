@@ -56,6 +56,22 @@ app.use(mountPath, api);
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
   res.status(200).send('Make sure to star the parse-server repo on GitHub!');
+  
+var api_key = 'key-7ae34f114a087362b42138490a1a9a2e';
+var domain = 'app4398522cd0e04ed182dd7a23c02ac37e.mailgun.org';
+var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+ 
+var data = {
+  from: 'Excited User <me@samples.mailgun.org>',
+  to: 'wendelvasc@gmail.com',
+  subject: 'Hello',
+  text: 'Testing some Mailgun awesomness!'
+};
+ 
+mailgun.messages().send(data, function (error, body) {
+  console.log(body);
+});
+  
 });
 
 // There will be a test page available on the /test path of your server url
@@ -75,17 +91,3 @@ ParseServer.createLiveQueryServer(httpServer);
 
 
 
-var api_key = 'key-7ae34f114a087362b42138490a1a9a2e';
-var domain = 'app4398522cd0e04ed182dd7a23c02ac37e.mailgun.org';
-var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
- 
-var data = {
-  from: 'Excited User <me@samples.mailgun.org>',
-  to: 'wendelvasc@gmail.com',
-  subject: 'Hello',
-  text: 'Testing some Mailgun awesomness!'
-};
- 
-mailgun.messages().send(data, function (error, body) {
-  console.log(body);
-});
