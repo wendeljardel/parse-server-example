@@ -4,6 +4,7 @@
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
+var Mailgun = require('mailgun-js');
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
@@ -71,3 +72,20 @@ httpServer.listen(port, function() {
 
 // This will enable the Live Query real-time server
 ParseServer.createLiveQueryServer(httpServer);
+
+
+
+var api_key = 'key-7ae34f114a087362b42138490a1a9a2e';
+var domain = 'app4398522cd0e04ed182dd7a23c02ac37e.mailgun.org';
+var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+ 
+var data = {
+  from: 'Excited User <me@samples.mailgun.org>',
+  to: 'wendelvasc@gmail.com',
+  subject: 'Hello',
+  text: 'Testing some Mailgun awesomness!'
+};
+ 
+mailgun.messages().send(data, function (error, body) {
+  console.log(body);
+});
